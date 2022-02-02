@@ -42,6 +42,14 @@ main {
     height: 100px;
 }
 
+.verde {
+    box-shadow: inset 0px 0px 0px 5px #32B72F;
+}
+
+.remove {
+    display: none;
+}
+
 @media (max-width: 614px) {
 
 main {
