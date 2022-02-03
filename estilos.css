@@ -18,14 +18,14 @@ header h1 {
 
 main {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap; 
+    justify-content: space-evenly; 
     background-color: blue;
-    margin: 0 122px;
     margin-top: 47px;
 }
 
-.card {
+.face {
     width: 117px;
     height: 146px;
     border-radius: 5px;
@@ -35,9 +35,33 @@ main {
     margin: 0 17px; 
     margin-bottom: 34px;
     background: #A7E9AF;
+   /* background-color: red; */
+    /* Sem isso as cartas estarão uma ao lado da outra */
+    position: absolute; 
+    backface-visibility: hidden;   
 }
 
-.card img {
+.card {
+    transform-style: preserve-3d;
+    transition: all 0.5s;
+    /* Faz a frente e as costas estarem sobrepostas */
+    display: flex;
+    justify-content: center; 
+}
+
+.flip {
+    transform: rotateY(180deg);
+    background-color: green;
+    position: relative;
+}
+
+
+#front {
+    transform: rotateY(180deg);
+}
+
+
+.face img {
     width: 100px;
     height: 100px;
 }
