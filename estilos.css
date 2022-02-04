@@ -18,11 +18,12 @@ header h1 {
 
 main {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap; 
-    justify-content: space-evenly; 
-    background-color: blue;
+    justify-content: center;  
     margin-top: 47px;
+    margin-bottom: 153px;
+    margin-left: 105px;
+    margin-right: 105px;
 }
 
 .face {
@@ -32,16 +33,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: center; 
-    margin: 0 17px; 
-    margin-bottom: 34px;
     background: #A7E9AF;
-   /* background-color: red; */
     /* Sem isso as cartas estarão uma ao lado da outra */
     position: absolute; 
     backface-visibility: hidden;   
 }
 
 .card {
+    width: 151px;
+    height: 180px;
     transform-style: preserve-3d;
     transition: all 0.5s;
     /* Faz a frente e as costas estarem sobrepostas */
@@ -51,7 +51,6 @@ main {
 
 .flip {
     transform: rotateY(180deg);
-    background-color: green;
     position: relative;
 }
 
@@ -59,25 +58,22 @@ main {
     transform: rotateY(180deg);
 }
 
-
 .face img {
     width: 100px;
     height: 100px;
-}
-
-.verde {
-    box-shadow: inset 0px 0px 0px 5px #32B72F;
 }
 
 .remove {
     display: none;
 }
 
-@media (max-width: 614px) {
+.disable {
+    pointer-events: none;
+}
+
+@media (max-width: 519px) {
 
 main {
-    margin: 0 109px;
-    margin-top: 47px;
-    background-color: red;
+    margin: 47px 109px;
 }
 }
