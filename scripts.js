@@ -1,44 +1,75 @@
-let baralho = ['<img src="Gifs/bobrossparrot.gif">'];
 
-function carregarBaralho () {
+let baralho = ['<img src="Gifs/bobrossparrot.gif">', '<img src="Gifs/explodyparrot.gif">', '<img src="Gifs/fiestaparrot.gif">', '<img src="Gifs/metalparrot.gif">', '<img src="Gifs/revertitparrot.gif">', '<img src="Gifs/tripletsparrot.gif">', '<img src="Gifs/unicornparrot.gif">'];
+
+/*Comandos de entrada de cartas */
+let escolhecartas = prompt("Quantas cartas você deseja? (números pares de 4 a 14)");
+while (escolhecartas > 14 || escolhecartas < 4 || escolhecartas % 2 !== 0) {
+  escolhecartas = prompt("Com quantas cartas quer jogar?");
+}
+
+/*Criar um novo array com as cartas dobradas e embaralhar*/
+
+let baralhoJogo = [];
+distruibuirCartas = escolhecartas / 2;
+for (let i = 0; i < distruibuirCartas; i++) {
+  baralhoJogo.push(baralho[i]);
+  baralhoJogo.push(baralho[i]);
+}
+baralhoJogo.sort(comparador);
+function comparador() {
+  return Math.random() - 0.5;
+}
+
+function carregarBaralho() {
   const carta = document.querySelector("main");
-  for (let i = 0; i < baralho.length; i++) {
+  for (let i = 0; i < escolhecartas; i++) {
     carta.innerHTML = carta.innerHTML + `
     <div class="flip carta${i} card" onclick="fliparCarta('carta${i}')">
-    <div class="face" id="front">
+    <div class="face front">
     <img src="Figuras/front.png">
     </div>
-    <div class="face" id="back">
-      ${baralho[i]}
+    <div class="face back">
+      ${baralhoJogo[i]}
     </div>
 </div>`
   }
 }
 
-carregarBaralho ();
+let memoriatexto = [];
+let memoriacarta = [];
 
 
- 
- /*Comandos de entrada de cartas */
 
-/*let escolhecartas = prompt("Com quantas cartas quer jogar?"); 
-while (escolhecartas > 14 || escolhecartas < 4 || escolhecartas%2 !== 0) {
-    escolhecartas = prompt("Com quantas cartas quer jogar?"); 
+function fliparCarta(flip) {
+  //Salva o nome da carta no array
+  let cartaSalva = document.querySelector('.' + flip + ' .back');
+  memoriatexto.push(cartaSalva.innerHTML);
+
+  const card = document.querySelector('.' + flip);
+  card.classList.toggle('flip');
+
+  memoriacarta.push(flip)
+
+
+  if (memoriacarta[1] == undefined) {
+   // no primeiro clique, não deve entrar no loop
+  }
+  else {
+    if (memoriatexto[0] !== memoriatexto[1]) {
+      for (let i = 0; i < 2; i++) {
+        let reset = document.querySelector('.' + memoriacarta[i]);
+        reset.classList.toggle('flip');
+       // alert (memoriacarta); 
+      }
+         memoriatexto = [];
+         memoriacarta = [];
+        //alert (memoriacarta); 
+    }
+    // se acertar deve desabilitar o botão das cartas fixadas
+    memoriatexto = [];
+    memoriacarta = [];
+  }
 }
-  //Habilitar depoiss
-// alert (escolhecartas);
-/*
-let cartasjogo = 6 - escolhecartas;
-let aux = 1;
- while (cartasjogo > 0) {
-    let removerCarta = document.querySelector("main .carta" + aux);
-    removerCarta.classList.add("remove")
-    aux = aux + 1;
-    cartasjogo = cartasjogo - 1;
-} */
 
 
-function fliparCarta(flip){
-const card = document.querySelector('.'+flip);
-card.classList.toggle('flip');
-}
+carregarBaralho();

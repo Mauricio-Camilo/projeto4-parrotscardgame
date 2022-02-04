@@ -55,8 +55,7 @@ main {
     position: relative;
 }
 
-
-#front {
+.front {
     transform: rotateY(180deg);
 }
 
