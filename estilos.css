@@ -11,15 +11,15 @@ header h1 {
     font-family: roboto;
     font-weight: 700;
     font-size: 56px;
-    color:#75B79E;
+    color: #75B79E;
     text-align: center;
     margin-top: 40px;
 }
 
 main {
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;  
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 47px;
     margin-bottom: 153px;
     margin-left: 105px;
@@ -32,11 +32,10 @@ main {
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     background: #A7E9AF;
-    /* Sem isso as cartas estarão uma ao lado da outra */
-    position: absolute; 
-    backface-visibility: hidden;   
+    position: absolute;
+    backface-visibility: hidden;
 }
 
 .card {
@@ -44,9 +43,8 @@ main {
     height: 180px;
     transform-style: preserve-3d;
     transition: all 0.5s;
-    /* Faz a frente e as costas estarem sobrepostas */
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .flip {
@@ -54,7 +52,7 @@ main {
     position: relative;
 }
 
-.front {
+.frente {
     transform: rotateY(180deg);
 }
 
@@ -63,17 +61,12 @@ main {
     height: 100px;
 }
 
-.remove {
-    display: none;
-}
-
 .disable {
     pointer-events: none;
 }
 
 @media (max-width: 519px) {
-
-main {
-    margin: 47px 109px;
-}
+    main {
+        margin: 47px 109px;
+    }
 }
