@@ -65,6 +65,13 @@ main {
     pointer-events: none;
 }
 
+.tempo {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    font-size: 20px;
+  }
+
 @media (max-width: 519px) {
     main {
         margin: 47px 109px;
